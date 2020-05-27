@@ -1,33 +1,40 @@
+'use strict';
+/**
+ * 
+ * @param {*} author 
+ * @param {*} text 
+ * @param {*} date 
+ */
 function Post(author, text, date) {
     this.author = author;
     this.text = text;
     this.date = date;
 }
-
-Post.prototype.edit = function(text) {
+Post.prototype.edit = function (text) {
     this.text = text;
 }
-
-let post1 = new Post('Nikita', 'Hello world', new Date());
-console.log(post1);
-post1.edit('Good Bye');
-console.log(post1);
-
-
+/**
+ * 
+ * @param {*} author 
+ * @param {*} text 
+ * @param {*} date 
+ */
 function AttachedPost(author, text, date) {
     Post.call(this, author, text, date);
     this.highlighted = false;
 }
-
+let post1 = new Post("Nikita", "Lalala", new Date());
+console.log(post1);
+post1.edit('edit');
+console.log(post1);
 AttachedPost.prototype = Object.create(Post.prototype);
 AttachedPost.prototype.constructor = AttachedPost;
 
-AttachedPost.prototype.TextHighlighted = function() {
+AttachedPost.prototype.makeTextHighlighted = function () {
     this.highlighted = true;
 }
-
-const attached1 = new AttachedPost('admin', 'lalalalala', new Date());
-console.log(attached1);
-attached1.TextHighlighted();
-attached1.edit('Doremi fasol');
-console.log(attached1);
+let post2 = new AttachedPost("Roma", "ROzaaaaa", new Date());
+console.log(post2);
+post2.makeTextHighlighted();
+post2.edit("Кожа рожа");
+console.log(post2);

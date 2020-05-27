@@ -5,10 +5,10 @@ class Product {
         this.price = price;
     }
     make25PercentDiscount() {
-        this.price = this.price - (this.price * 25 / 100);
+        this.price = this.price - this.price * 0.25;
     }
 }
-const product1 = new Product("яблоки", 100);
-product1.make25PercentDiscount();
-
-console.log(product1);
+let x = new Product("яблоки", 400);
+console.log(x);
+x.make25PercentDiscount();
+console.log(x);
